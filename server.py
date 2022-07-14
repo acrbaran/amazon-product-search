@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import random
 from flask_cors import CORS
 
-app = flask.Flask(__name__,static_url_path='/',static_folder='dist')
+app = flask.Flask(__name__,static_url_path='/',static_folder='static')
 CORS(app)
 app.debug = False
 selectors = Extractor.from_yaml_file('search_results.yml')

@@ -1,0 +1,147 @@
+// 
+// helper.scss
+// 
+// color
+@each $color,
+$value in $theme-colors {
+    .text-#{$color} {
+        color: ($value) !important;
+    }
+    .bg-#{$color} {
+        background-color: ($value) !important;
+    }
+}
+
+// font-size
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-13 {
+    font-size: 13px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-17 {
+    font-size: 17px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-19 {
+    font-size: 19px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-21 {
+    font-size: 21px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}
+
+.fs-23 {
+    font-size: 23px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+// font-weight
+.fw-medium {
+    font-weight: 500;
+}
+
+.fw-semibold {
+    font-weight: 600;
+}
+
+// icon size
+.icon {    
+    position: relative;
+    top:-2px;
+}
+.icon-xxl {
+    height: 58px;
+    width: 58px;
+}
+
+.icon-xl {
+    height: 38px;
+    width: 38px;
+}
+
+.icon-lg {
+    height: 34px;
+    width: 34px;
+}
+
+.icon-sm {
+    height: 24px;
+    width: 24px;
+}
+
+.icon-xs {
+    height: 18px;
+    width: 18px;
+}
+
+.icon-xxs {
+    height: 15px;
+    width: 15px;
+}
+
+// icon-weight
+.sw-1_5 {
+    stroke-width: 1.5px;
+}
+
+.sw-1 {
+    stroke-width: 1px;
+} 
+
+// border
+.border {
+    border: 1px solid $gray-100 !important;
+}
+
+.border-end {
+    border-right: 1px solid $gray-100 !important;
+}
+
+// shadow
+.shadow {
+    box-shadow: 0px 4px 20px rgba($gray-800, 0.07) !important;
+}
+
+.bg-overlay {
+    background-color: rgba($gray-700, 0.83);
+    width: 100%;
+    height: 100%;
+}
+
+.section {
+    padding: 100px 0px 100px;
+    position: relative;
+}
+
+
+

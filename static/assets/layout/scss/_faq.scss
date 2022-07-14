@@ -1,0 +1,76 @@
+// faq.scss
+
+.accordion {
+    .accordion-item {
+        .accordion-header {
+            .accordion-button {
+                &:after {
+                 background-image: none;
+                }
+                &:before {
+                    content: "─";
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    margin-right: 10px;
+                    color: $primary;
+                }
+                &:focus {
+                    box-shadow: none;
+                }
+                &.collapsed {
+                    &:before {
+                        content: "✛";
+                        margin-right: 10px;
+                        width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+
+                    }
+                }
+            }
+            
+        }
+        .accordion-collapse {
+            .accordion-body {
+                position: relative;
+                margin-left: 70px;
+                padding: 24px 16px;
+                &:before {
+                    content: "";
+                    width: 2px;
+                    height: 40px;
+                    background-color: $primary;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 0px;
+
+                }
+            }
+        }
+    }
+}
+
+.faq-img {
+    .faq-ask {
+        letter-spacing: 2px;
+        position: absolute;
+        right: -110px;
+        bottom: 110px;
+        transform: rotate(90deg);
+        
+    }
+}
+
+@media (max-width:576px) {
+    .faq-img {
+        .faq-ask {
+            letter-spacing: 2px;
+            position: absolute;
+            right: -50px;
+            bottom: 110px;
+            transform: rotate(90deg);        
+        }
+    }
+}

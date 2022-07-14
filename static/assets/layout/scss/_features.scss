@@ -1,0 +1,19 @@
+// 
+// features.scss
+// 
+
+.user-box {
+    position: absolute;
+    right: -110px;
+    bottom: 30px;
+  }
+
+  .feature-two-content {
+      .icon-box {
+        width: 62px;
+        height: 62px;
+        line-height: 62px;
+        background-color: rgba($primary, 0.05);
+
+      }
+  }

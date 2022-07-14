@@ -1,0 +1,103 @@
+// 
+// testimonial.scss
+// 
+
+// client-slider-one
+.client-slider-one {
+    .client-box {
+        padding: 20px;
+    }
+}
+.tns-outer {
+    position: relative;
+    .tns-nav {
+        text-align: center;
+        margin-top: 25px;
+        button {
+            width: 14px !important;
+            height: 5px !important;
+            border: none;
+            background-color: rgba($primary, 0.2) !important;
+            padding: 0px;
+            margin: 0px 4px ;
+            transition: all 0.3s;
+            border-radius: 30px;
+            &:focus, &:hover, &:active, &.active {
+                outline: none;
+                background-color: $primary !important;
+            }
+            &.tns-nav-active {
+                background-color: $primary !important;
+             width: 22px !important;
+            }
+        } 
+    }    
+}
+
+@media (max-width:768px) {
+    .client-slider-one {
+        .client-box {
+            text-align: center;
+            .name-box {
+                border-right: none !important;
+            }
+        }
+    }
+}
+
+
+
+// 
+//client-slider-two
+// 
+.client-slider-two {
+    .user-img {
+        max-width: 100px;
+    }
+}
+.tns-outer {
+    position: relative;
+    .tns-nav {
+        text-align: center;
+        button {
+            width: 14px !important;
+            height: 5px !important;
+            border: none;
+            background-color: rgba($primary, 0.2) !important;
+            padding: 0px;
+            margin: 0px 4px ;
+            transition: all 0.3s;
+            border-radius: 30px;
+            &:focus, &:hover, &:active, &.active {
+                outline: none;
+                background-color: $primary !important;
+            }
+            &.tns-nav-active {
+                background-color: $primary !important;
+             width: 22px !important;
+            }
+        } 
+    }    
+}
+
+@media (max-width:768px) {
+    .client-slider-two {
+        .client-box {
+            text-align: center;
+            .name-box {
+                border-right: none !important;
+            }
+        }
+    }
+}
+
+// hero-two-3 slider
+.hero-two-3 {
+    .tns-outer {
+        z-index: 1;
+        margin-top: 100px;
+    }
+}
+
+
+

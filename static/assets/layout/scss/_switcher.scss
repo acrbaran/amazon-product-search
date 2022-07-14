@@ -1,0 +1,86 @@
+// switcher.scss
+
+#style-switcher {
+    transition: all 0.4s;
+	div {
+		h3 {
+			color: $dark;
+			font-size: 16px;
+			margin: 0 3px 12px;
+		}
+		padding: 5px 10px;
+	}
+    background: none repeat scroll 0 0 $white;
+    box-shadow: 0px 4px 12px rgba(31,27,81,0.07);
+	left: -189px;
+	position: fixed;
+	top: 17%;
+	width: 189px;
+	z-index: 9999;
+	padding: 10px 5px;
+	.bottom {
+		background: none repeat scroll 0 0 $white;
+		color: #252525;
+		padding: 0;
+		a.settings {
+            background: none repeat scroll 0 0 $dark;
+            box-shadow: 0px 4px 12px rgba(31,27,81,0.07);
+			display: block;
+			height: 45px;
+			position: absolute;
+			right: -45px;
+			top: 0;
+			width: 45px;
+			padding: 10px;
+		}
+	}
+}
+ul.pattern {
+	list-style: none outside none;
+	margin: 0 0 0px;
+	overflow: hidden;
+	padding: 0;
+	border-radius: 0px;
+	li {
+		float: left;
+		margin: 2px;
+		a {
+			cursor: pointer;
+			display: block;
+			height: 35px;
+			width: 35px;
+			border-radius: 30px;
+			margin: 5px;
+		}
+	}
+	.color1 {
+		background-color: #FF9900;
+	}
+	.color2 {
+		background-color: #18ce76;
+	}
+	.color3 {
+		background-color: #fbb70b;
+	}
+	.color4 {
+		background-color: #e84040;
+	}
+	.color5 {
+		background-color: #4bc1e2;
+	}
+	.color6 {
+		background-color: #cebca4;
+	}
+}
+@media only screen and (max-width: 479px) {
+	#style-switcher {
+		display: none;
+	}
+	.testi-desc {
+		p {
+			max-width: 230px;
+			margin: 0 auto;
+		}
+	}
+}
+

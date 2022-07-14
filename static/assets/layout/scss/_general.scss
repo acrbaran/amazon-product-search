@@ -1,0 +1,42 @@
+// 
+// general.scss
+// 
+body {
+    font-family: $font-primary;
+    color: $dark;
+    background: $body-bg;
+    line-height: 1.6;
+    font-size: 14.4px;
+}
+
+html {
+    scroll-padding-top: 66px;
+}
+
+a {
+    text-decoration: none !important;
+    outline: none;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-secondary;
+}
+
+.row > * {
+    position: relative;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1320px;
+    }
+}
