@@ -1,0 +1,86 @@
+// 
+// ourservices.scss
+// 
+
+
+.service-layout-1 {
+    padding: 160px 0px 100px;
+}
+   
+.service-box-one {
+    transition: all 0.5s;
+    .service-icon {
+        color: $primary;
+    }
+    a {
+        color: $primary !important;
+    }
+    .service-title {
+        color: $dark;
+    }
+    .service-subtitle {
+        color: $muted;
+    }
+    &:hover, &.active {
+        box-shadow: 3px 4px 12px rgba($gray-800, 0.06);
+        background-color: $primary;
+        transform: translateY(-0.5rem);
+        .service-icon,
+        .service-title,
+        a {
+            color: $white !important;
+            fill: rgba($white, 0.14);
+        }
+        .service-subtitle {
+            color: rgba($white, 0.6);
+        }
+    }
+}
+
+
+.service-box-two {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid lighten($gray-100, 2%);
+    transition: all 0.5s ease-in-out;
+
+    &:after {
+        content: "";
+        width: 50px;
+        height: 50px;
+        background-color: rgba($primary, 0.08);
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        border-radius: 50%;
+        transition: all 0.5s ease-in-out;
+    }    
+    .icon-box {
+        background-color:$white;
+        width: 72px;
+        height: 72px;  
+        line-height: 72px;   
+        transition: all 0.8s ease-in-out;
+        border-radius: 50%;
+
+        .service-icon {
+            color: $primary;
+            display: inline-block;
+        }
+    } 
+    &:hover, &.active {
+    border: 1px solid rgba($primary, 0.03);
+        &:after {
+            background-color: rgba($primary, 0.03);
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            top: 0;
+            left: 0;
+        }
+        .icon-box {
+            background-color: rgba($primary, 0.06);
+        }
+    }
+       
+}

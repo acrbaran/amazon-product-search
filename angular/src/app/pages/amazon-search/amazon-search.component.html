@@ -1,0 +1,168 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-light border-bottom-0" id="navbar"
+    (window:scroll)="windowScroll()">
+    <div class="container">
+        <button (click)="toggleMenu()" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggle-icon">
+                <i-feather name="menu"></i-feather>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'product-search'}"
+                        [ngxScrollTo]="'#product-search'" href="javascript: void(0);">Product Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="isSuccessData" [ngClass]="{'active':currentSection === 'search-result'}"
+                        [ngxScrollTo]="'#search-result'" href="javascript: void(0);">Search Results</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+    <section class="hero-two-4 bg-light position-relative overflow-hidden align-items-center d-flex" id="product-search"
+        style="background-image: url(assets/layout/images/hero-two-4-bg.png);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="hero-two-4-content">
+                        <h1 class="text-dark display-4 fw-light mb-4">
+                            <img class="mb-2" src="assets/images/amazon-logo.png" alt="logo" width="160">
+                            <br />
+                            Product Search
+                        </h1>
+                        <h6 class="text-muted fw-normal lh-sm mb-5">{{contents}}</h6>
+                        <p-blockUI [target]="searchPanel" [blocked]="blockedSearchPanel">
+                            <img class="world-img" src="assets/images/world.gif" alt="world" width="500">
+                            <p-progressSpinner [style]="{width: '60px', height: '60px'}" styleClass="custom-spinner"
+                                strokeWidth="7" fill="transparent" animationDuration=".7s"></p-progressSpinner>
+                            <h6 id="search-block-label" class="mt-4">Searching...</h6>
+                        </p-blockUI>
+                        <p-panel #searchPanel>
+                            <form [formGroup]="searchForm" (ngSubmit)="onSubmit()"
+                                class="row gx-3 gy-2 align-items-center justify-content-center">
+                                <div class="col-12">
+                                    <p-selectButton [options]="targetOptions" (click)="countryCheck()"
+                                        formControlName="target" optionLabel="label" aria-describedby="country-help"
+                                        optionValue="value">
+                                        <ng-template let-item>
+                                            <img [src]="item.img" [pTooltip]="item.tooltip" tooltipPosition="bottom"
+                                                [alt]="item.img">
+                                        </ng-template>
+                                    </p-selectButton>
+                                    <div *ngIf="hasCountryError" class="alert m-0 p-0">
+                                        <small id="country-help" class="p-error block">Country is
+                                            required</small>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-7 mt-5">
+                                    <div class="p-float-label form-group">
+                                        <input class="form-control ps-5 ng-invalid ng-dirty" id="float-input"
+                                            formControlName="keyword" autocomplete="off" type="text"
+                                            aria-describedby="keyword-help" maxlength="100" pInputText required>
+                                        <label for="float-input">Search</label>
+                                        <i-feather name="search"
+                                            class="sw-1_5 icon-xxs text-muted position-absolute top-50 start-0 end-0 translate-middle-y ms-4 hero-icon">
+                                        </i-feather>
+                                    </div>
+                                    <div *ngIf="hasKeywordError && searchForm.controls['keyword'].value?.length < 1"
+                                        class="alert m-0 p-0">
+                                        <small id="keyword-help" class="p-error block">Search is
+                                            required</small>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-12 col-md-5 d-flex justify-content-center input-number number-input mt-3">
+                                    <div class="col-6 col-md-6 input-number page-start-input">
+                                        <div class="p-float-label form-group">
+                                            <input class="form-control ps-5" id="float-input-start" (blur)="pageStart()"
+                                                formControlName="pageStart" autocomplete="off"
+                                                aria-describedby="page-start-help" type="number" min="1" pInputText
+                                                required>
+                                            <label for="float-input-start">Start Page</label>
+                                            <i-feather name="hash"
+                                                class="sw-1_5 icon-xxs text-muted position-absolute top-50 start-0 end-0 translate-middle-y ms-4 hero-icon">
+                                            </i-feather>
+                                        </div>
+                                        <div *ngIf="hasStartPageError && searchForm.controls['pageStart'].value?.length < 1"
+                                            class="alert m-0 p-0">
+                                            <small id="page-start-help" class="p-error block">Start Page is
+                                                required</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-6 input-number">
+                                        <div class="p-float-label form-group">
+                                            <input class="form-control ps-5" id="float-input-end" (blur)="pageEnd()"
+                                                formControlName="pageEnd" aria-describedby="page-end-help"
+                                                autocomplete="off" type="number" max="20" pInputText required>
+                                            <label for="float-input-end">End Page</label>
+                                            <i-feather name="hash"
+                                                class="sw-1_5 icon-xxs text-muted position-absolute top-50 start-0 end-0 translate-middle-y ms-4 hero-icon">
+                                            </i-feather>
+                                        </div>
+                                        <div *ngIf="hasEndPageError && searchForm.controls['pageEnd'].value?.length < 1"
+                                            class="alert m-0 p-0">
+                                            <small id="page-end-help" class="p-error block">End Page is
+                                                required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 input-number d-flex justify-content-center">
+                                    <div class="form-group">
+                                        <p-toggleButton (click)="textCount()" formControlName="isUseProxy"
+                                            [onLabel]="onLabelMessage" [offLabel]="offLabelMessage"
+                                            offIcon="pi pi-times" [onIcon]="onIconString">
+                                        </p-toggleButton>
+                                    </div>
+                                    <div class="px-3" *ngIf="this.searchForm.value.isUseProxy">
+                                        <button pButton pRipple type="button" (click)="randomProxy()"
+                                            label="Random Proxy" class="p-button-text"></button>
+                                    </div>
+                                </div>
+                                <div *ngIf="this.searchForm.value.isUseProxy" class="col-12 input-number">
+                                    <div class="p-float-label form-group">
+                                        <textarea class="form-control ps-5" (blur)="textAreaCount()"
+                                            id="float-input-count" formControlName="proxyList" rows="4" cols="30"
+                                            autocomplete="off" pInputTextarea></textarea>
+                                        <label for="float-input-count">Proxy List</label>
+                                        <i-feather name="list"
+                                            class="sw-1_5 icon-xxs text-muted position-absolute top-50 start-0 end-0 translate-middle-y ms-4 hero-icon">
+                                        </i-feather>
+                                        <div class="theCount float-start">Enter one proxy per line</div>
+                                        <div class="theCount">Number of proxies: <span id="linesUsed">0</span></div>
+                                    </div>
+                                </div>
+                                <div class="col-12 input-number">
+                                    <button type="submit" class="col-8 input-group-text btn btn-primary">Search</button>
+                                </div>
+                                <div class="col-12">
+                                    <button type="button" (click)="clearForm()"
+                                        class="input-group-text btn btn-link trash-button">Clear</button>
+                                </div>
+                            </form>
+                        </p-panel>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <app-amazon-search-result *ngIf="isSuccessData" [product]="productList" [isSuccessData]="isSuccessData"
+        [inputData]="inputData">
+    </app-amazon-search-result>
+    <app-footer></app-footer>
+</div>
+
+<p-toast></p-toast>
+<p-toast position="bottom-center" key="bc"></p-toast>
+<ng-template let-message pTemplate="message">
+    <div class="flex flex-column" style="flex: 1">
+        <div class="text-center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+            <h4>{{message.summary}}</h4>
+            <p>{{message.detail}}</p>
+        </div>
+    </div>
+</ng-template>

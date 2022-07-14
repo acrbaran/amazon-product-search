@@ -1,0 +1,98 @@
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+    <section class="section" id="search-result">
+        <div class="container">
+            <h2 class="text-dark display-5 fw-light mb-4 text-center">
+                Product Search Result
+            </h2>
+            <p-table #dt responsiveLayout="scroll" [columns]="cols" [value]="products" selectionMode="multiple"
+                [(selection)]="selectedProducts" dataKey="asin" styleClass="p-datatable-customer" [rowHover]="true"
+                [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
+                [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [filterDelay]="0" [globalFilterFields]="['image','asin','title', 'price', 'reviews', 'deliveryTo']">
+                <ng-template pTemplate="caption">
+                    <div class="table-header tbl-header">
+                        <div class="export-button">
+                            <button type="button" pButton pRipple icon="pi pi-download" (mousedown)="exportAll()"
+                                (mouseup)="export()" class="p-mr-2 mx-2 export-btn">All Product</button>
+                            <button type="button" pButton pRipple icon="pi pi-download" (mousedown)="exportAsin()"
+                                (mouseup)="export()" class="p-mr-2 mx-2 export-btn">ASIN</button>
+                            <button type="button" pButton pRipple icon="pi pi-download"
+                                (click)="dt.exportCSV({selectionOnly:true})"
+                                class="p-button-info p-ml-auto mx-2 export-btn">Selection Only</button>
+                        </div>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input class="search-input" pInputText type="text"
+                                (input)="dt.filterGlobal(search($event), 'contains')" placeholder="Search" />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th class="text-center">Image</th>
+                        <th class="text-center" pSortableColumn="rating">ASIN <p-sortIcon field="asin"></p-sortIcon>
+                        </th>
+                        <th class="text-center" pSortableColumn="title" style="width:50%">Title <p-sortIcon
+                                field="title"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon>
+                        </th>
+                        <th>Delivery To</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr class="p-selectable-row">
+                        <td>
+                            <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                        </td>
+                        <td class="text-center">
+                            <span class="p-column-title">Image</span><img [src]="product.image" [alt]="product.image"
+                                width="100" class="shadow-4 table-img" />
+                        </td>
+                        <td>
+                            <span class="p-column-title">ASIN</span>
+                            <a href="{{product.url}}" target="_blank"><span
+                                    class="image-text d-flex justify-content-center mb-1">{{product.asin}}</span></a>
+                            <span *ngIf="product.rating" class="d-flex justify-content-center">
+                                <p-rating [ngModel]="ratingFloor(product.rating)" [readonly]="true" [cancel]="false">
+                                </p-rating>
+                            </span>
+                            <small class="d-flex justify-content-center">{{product.rating}}</small>
+                            <small class="d-flex justify-content-center">{{product.reviews ? product.reviews + '
+                                ratings' : null}}</small>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Title</span>
+                            <span class="image-text" [pTooltip]="product.title"
+                                tooltipPosition="bottom">{{titleCheck(product.title)}}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Price</span>
+                            {{product.price ? product.price : 'not available' }}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Delivery To</span>
+                            <img class="target-img" [pTooltip]="mainCountry(inputData.target)" tooltipPosition="bottom"
+                                src="assets/images/country/{{flagMainSrc(inputData.target)}}" width="35">
+                            <i-feather class="target-icon" name="arrow-{{screenFull === true ? 'right': 'down'}}">
+                            </i-feather>
+                            <img class="target-img"
+                                [pTooltip]="product.deliveryTo == 'Select your address' ? mainCountry(inputData.target) : product.deliveryTo"
+                                tooltipPosition="bottom"
+                                src="assets/images/country/{{product.deliveryTo == 'Select your address' ? flagMainSrc(inputData.target) : flagDeliverySrc(product.deliveryTo)}}"
+                                width="35">
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="8">No product found.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </section>
+</div>

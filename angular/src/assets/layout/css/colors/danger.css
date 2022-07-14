@@ -1,0 +1,86 @@
+/* danger.css */
+
+
+/* color */
+.text-primary,
+.btn-outline-primary,
+.bg-soft-primary,
+.navbar .navbar-nav .nav-item .nav-link:hover,
+.navbar .navbar-nav .nav-item .nav-link:focus,
+.navbar .navbar-nav .nav-item .nav-link.active,
+.nav-sticky .navbar-nav .nav-item .nav-link:hover,
+.nav-sticky .navbar-nav .nav-item .nav-link:active,
+.nav-sticky .navbar-nav .nav-item .nav-link:focus,
+.nav-sticky .navbar-nav .nav-item .nav-link.active,
+.service-box-one .service-icon,
+.service-box-one a,
+.service-box-two .icon-box .service-icon,
+.accordion .accordion-item .accordion-header .accordion-button:before {
+    color: #e84040 !important;
+}
+
+/* background-color */
+.bg-primary,
+.btn-primary,
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active,
+.nav-sticky .nav-btn,
+.hero-one-3 .carousel-indicators li.active,
+.hero-two-3 .hero-two-3-content .content-btn:after,
+.service-box-one:hover, .service-box-one.active ,
+.tns-outer .tns-nav button:focus, .tns-outer .tns-nav button:hover, .tns-outer .tns-nav button:active, .tns-outer .tns-nav button.active,
+.tns-outer .tns-nav button.tns-nav-active,
+.accordion .accordion-item .accordion-collapse .accordion-body:before,
+.owl-theme .owl-dots .owl-dot.active span,
+.accordion .card-body:before {
+    background-color: #e84040 !important;
+}
+
+/* border */
+.btn-primary,
+.btn-outline-primary,
+.nav-sticky .nav-btn {
+    border: 1px solid #e84040 !important;
+}
+
+/* border-color */
+.hero-one-1 .form-card form .form-control:focus,
+.form-control:focus {
+    border-color: #e84040 !important;    
+}
+
+/* rgba */
+.hero-one-3 .carousel-indicators li,
+.service-box-two:hover:after, .service-box-two.active:after{
+    background-color: rgba(232, 64, 64, 0.05) !important;    
+}
+
+.service-box-two:after {
+    background-color: rgba(232, 64, 64, 0.08);
+}
+
+.service-box-two:hover .icon-box, .service-box-two.active .icon-box {
+    background-color: rgba(232, 64, 64, 0.06);
+}
+
+.feature-two-content .icon-box {
+  background-color: rgba(232, 64, 64, 0.05);
+}
+
+.tns-outer .tns-nav button,
+.owl-theme .owl-dots .owl-dot span {
+    background-color: rgba(232, 64, 64, 0.2) !important;
+}
+
+.bg-soft-primary {
+    background-color: rgba(232, 64, 64, 0.1);
+}
+
+/* gradient */
+.hero-one-5 .hero-one-5-overlay {
+    background: linear-gradient(90deg, #e84040 5%, #e84040 75%, rgba(255, 255, 255, 0.1) 50%);
+}
+
+.hero-two-5:after {
+    background: linear-gradient(to bottom, #e84040 0%, #ffa5a5 100%);
+}

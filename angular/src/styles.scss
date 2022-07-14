@@ -1,0 +1,83 @@
+@import "./assets/layout/scss/style.scss";
+
+.owl-dots {
+    margin-top: 20px !important;
+}
+
+.p-button-label {
+    font-weight: 600 !important;
+    padding-bottom: 1px !important;
+    font-size: 15px;
+}
+
+.p-togglebutton.p-button {
+    border-color: $gray-400 !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.p-togglebutton.p-button.p-highlight {
+    background: $primary !important;
+    border-color: $primary !important;
+    box-shadow: none;
+}
+
+.p-button:focus {
+    box-shadow: none !important;
+}
+
+.p-buttonset .p-button {
+    padding: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: #f7f7fd !important;
+}
+
+.p-selectbutton .p-button.p-highlight {
+    background: $primary !important;
+    border-color: $primary !important;
+}
+
+.p-panel .p-panel-header {
+    display: none;
+}
+
+.p-panel .p-panel-content {
+    padding: 0 !important;
+    background-color: transparent !important;
+    color: transparent !important;
+    border: none !important;
+}
+
+.p-blockui {
+    background-color: rgba(248, 248, 252, 0.6) !important;
+    border-radius: 1rem;
+    flex-direction: column;
+}
+
+.p-button.p-button-text {
+    color: $primary !important;
+}
+
+.p-button.p-button-text:enabled:hover {
+    background: rgba(255, 153, 0, 0.04) !important;
+}
+
+.p-rating .p-rating-icon.pi-star-fill {
+    color: $primary !important;
+}
+
+.p-button.p-button-icon-only {
+    width: 11rem !important;
+    flex-direction: row-reverse !important;
+}
+
+.pi-download {
+    padding-right: 10px !important;
+}
+
+.p-rating {
+    @media screen and (max-width: 768px) {
+        width: 125px !important;
+    }
+}

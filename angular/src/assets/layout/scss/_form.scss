@@ -1,0 +1,29 @@
+// form.scss
+
+.form-control {
+    font-size: 14px;
+    height: 45px;
+    border: 1px solid $gray-400 !important;
+    &:focus {
+        box-shadow: none;
+        border-color: $primary !important;
+    }  
+}
+textarea {
+    height: auto !important;
+}
+
+::placeholder {
+    color: $gray-600 !important;
+    font-weight: 300 !important;
+}
+
+.alert {
+    padding: 0.75rem;   
+}
+
+// body {
+//     &.modal-open {
+//         padding-right: 0 !important;
+//     }
+// }
