@@ -38,6 +38,7 @@ pip install -r requirements.txt
 
 ```sh
 python server.py
+-> Go to http://localhost
 ```
 
 ## Server Deployment
