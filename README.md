@@ -63,7 +63,7 @@ ng serve
 
 👤 **Baran Acar**
 
-* Website: acarbaran.com
+* Website: <a href="https://www.acarbaran.com/" target="_blank">acarbaran.com</a>
 * Github: [@acrbaran](https://github.com/acrbaran)
 * LinkedIn: [@acarbaran](https://linkedin.com/in/acarbaran)
 
