@@ -1512,7 +1512,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     proxyApiUrl: "https://dsapi.teslayazilim.com/api/client/proxies/",
-    searchApiUrl: "http://37.140.242.16:5001/api/search",
+    searchApiUrl: "http://localhost/api/search",
 };
 /*
  * For easier debugging in development mode, you can import the following file
