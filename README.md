@@ -23,6 +23,7 @@
 
 - npm >=6.14.17
 - node >=14.19.3
+- python >=3.6.0
 
 ## Install
 
@@ -67,7 +68,6 @@ ng serve
 
 👤 **Kadir Baştimar**
 
-* Website: acarbaran.com
 * Github: [@kadirbastimar](https://github.com/kadirbastimar)
 * LinkedIn: [@kadirbastimar](https://linkedin.com/in/kadirbastimar)
 
