@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   proxyApiUrl: "https://dsapi.teslayazilim.com/api/client/proxies/",
-  searchApiUrl: "http://37.140.242.16:5001/api/search",
+  searchApiUrl: "http://localhost/api/search",
 };
 
 /*
